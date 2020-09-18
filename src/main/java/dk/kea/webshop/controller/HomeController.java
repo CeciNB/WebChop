@@ -1,7 +1,7 @@
 package dk.kea.webshop.controller;
 
-import dk.kea.webshop.model.Animal;
-import dk.kea.webshop.service.AnimalService;
+import dk.kea.webshop.model.Product;
+import dk.kea.webshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class HomeController {
     @Autowired
-    AnimalService animalService;
+    ProductService productService;
 
     @GetMapping("/")
     public String index(Model model)
     {
         //add all animals to view model from animalService
-        model.addAttribute("anim", animalService.readAll());
+        model.addAttribute("anim", productService.readAll());
         return("index");
     }
 
@@ -29,8 +29,8 @@ public class HomeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Animal anim){
-        animalService.create(anim);
+    public String create(@ModelAttribute Product anim){
+        productService.create(anim);
         return "redirect:/";
     }
 
@@ -38,15 +38,15 @@ public class HomeController {
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") long id, Model model){
         //tilføj Animal med id til model view
-        model.addAttribute("anim", animalService.read(id));
+        model.addAttribute("anim", productService.read(id));
         return "update";
     }
 
     //update animal
     @PostMapping("/update")
-    public String update(@ModelAttribute Animal anim){
+    public String update(@ModelAttribute Product anim){
         //update by using update service
-        animalService.update(anim);
+        productService.update(anim);
         return "redirect:/";
     }
 
@@ -58,7 +58,7 @@ public class HomeController {
             else
             model.addAttribute("status", "element " + id + " kunne ikke slettes!";
          */
-        animalService.delete(id);
+        productService.delete(id);
         //burde fange returværdi fra kald og sende statusbesked med ud på websiden
         //model.addAttribute("status", returnværdi af kald)
         return "redirect:/";

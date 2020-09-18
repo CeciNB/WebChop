@@ -15,12 +15,12 @@
             <th>Navn</th>
             <th>Art</th>
         </tr>
-        <tr th:each="animal : ${anim}">
-            <td th:text="${animal.id}">xxx</td>
-            <td th:text="${animal.name}">Motorstruds</td>
-            <td th:text="${animal.species}">Motoriseret fugl</td>
-            <td><a th:href="@{'/update/' + ${animal.id}}">Opdater</a></td>
-            <td><a th:href="@{'/delete/' + ${animal.id}}">Slet</a></td>
+        <tr th:each="product : ${anim}">
+            <td th:text="${product.id}">xxx</td>
+            <td th:text="${product.name}">Motorstruds</td>
+            <td th:text="${product.species}">Motoriseret fugl</td>
+            <td><a th:href="@{'/update/' + ${product.id}}">Opdater</a></td>
+            <td><a th:href="@{'/delete/' + ${product.id}}">Slet</a></td>
         </tr>
     </table>
 

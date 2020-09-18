@@ -1,15 +1,15 @@
 package dk.kea.webshop.model;
 
-public class Animal {
+public class Product {
 
     private long id;
     private String name;
     private String species;
 
-    public Animal() {
+    public Product() {
     }
 
-    public Animal(long id, String name, String species) {
+    public Product(long id, String name, String species) {
         this.id = id;
         this.name = name;
         this.species = species;
