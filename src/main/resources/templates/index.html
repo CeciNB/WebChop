@@ -3,9 +3,33 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
-    <title>Oversigt over dyr i Zoo</title>
+    <title>Oversigt over vare</title>
 </head>
 <body>
+    <div class="row">
+        <h1>Vareliste</h1>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <th>Varenavn</th>
+                <th>Pris</th>
+                <th>Beskrivelse</th>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.description}"></td>
+                <td><a th:href="@{'/update/' + ${product.id}}">opdater</a></td>
+                <td><a th:href="@{'/delete/' + ${product.id}}">slet</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <a href="create">opret product</a>
+    </div>
+
+<!--
     <h1>Oversigt over dyrene</h1>
 
     <table>
@@ -25,5 +49,6 @@
     </table>
 
     <a href="create">Tilføj nyt dyr</a>
+    -->
 </body>
 </html>

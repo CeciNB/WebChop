@@ -18,8 +18,8 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model)
     {
-        //add all animals to view model from animalService
-        model.addAttribute("anim", productService.readAll());
+        //add all products to view model from ProductService
+        model.addAttribute("products", productService.readAll());
         return("index");
     }
 
