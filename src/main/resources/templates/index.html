@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Oversigt over vare</title>
 </head>
 <body>
-    <div class="row">
+<div class="row">
+    <div class="container">
         <h1>Vareliste</h1>
     </div>
-    <div class="row">
-        <table>
+</div>
+<div class="row">
+    <div class="container">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Varenavn</th>
                 <th>Pris</th>
                 <th>Beskrivelse</th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="product : ${products}">
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.description}"></td>
-                <td><a th:href="@{'/update/' + ${product.id}}">opdater</a></td>
-                <td><a th:href="@{'/delete/' + ${product.id}}">slet</a></td>
+                <td><a th:href="@{'/update/' + ${product.id}}" class="btn btn-warning">opdater</a></td>
+                <td><a th:href="@{'/delete/' + ${product.id}}" class="btn btn-danger">slet</a></td>
             </tr>
+            </tbody>
         </table>
     </div>
-    <div class="row">
-        <a href="create">opret product</a>
+</div>
+<div class="row">
+    <div class="container">
+        <a href="create" class="btn btn-primary" role="button">opret product</a>
     </div>
+</div>
 
 <!--
     <h1>Oversigt over dyrene</h1>
@@ -49,6 +60,6 @@
     </table>
 
     <a href="create">Tilføj nyt dyr</a>
-    -->
+-->
 </body>
 </html>
