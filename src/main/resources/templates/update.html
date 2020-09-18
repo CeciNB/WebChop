@@ -5,16 +5,18 @@
     <title>Update</title>
 </head>
 <body>
-    <h1>Opdater Dyr</h1>
+    <h1>Opdater Product</h1>
 
     <form action="/update" method="post">
         <div>
-            <input type="hidden" name="id" th:value="${anim.id}">
-            <input type="text" name="name" th:value="${anim.name}">
-
+            <input type="hidden" name="id" th:value="${product.id}">
+            <input type="text" name="name" th:value="${product.name}">
         </div>
         <div>
-            <input type="text" name="species" th:value="${anim.species}">
+            <input type="text" name="price" th:value="${product.price}">
+        </div>
+        <div>
+            <input type="text" name="description" th:value="${product.description}">
         </div>
         <div>
             <input type="submit" value="Opdater">
