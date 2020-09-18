@@ -18,8 +18,8 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model)
     {
-        //add all animals to view model from animalService
-        model.addAttribute("anim", productService.readAll());
+        //add all products to view model from ProductService
+        model.addAttribute("product", productService.readAll());
         return("index");
     }
 
@@ -29,31 +29,31 @@ public class HomeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Product anim){
-        productService.create(anim);
+    public String create(@ModelAttribute Product product){
+        productService.create(product);
         return "redirect:/";
     }
 
     //use pathvariable to map id from list on web page
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") long id, Model model){
-        //tilføj Animal med id til model view
-        model.addAttribute("anim", productService.read(id));
+        //tilføj Product med id til model view
+        model.addAttribute("product", productService.read(id));
         return "update";
     }
 
-    //update animal
+    //update product
     @PostMapping("/update")
-    public String update(@ModelAttribute Product anim){
+    public String update(@ModelAttribute Product product){
         //update by using update service
-        productService.update(anim);
+        productService.update(product);
         return "redirect:/";
     }
 
     //delete animal
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") long id, Model model){
-        /* if (animalService.delete(id))
+        /* if (productService.delete(id))
             model.addAttribute("status", "element " + id + " slettet";
             else
             model.addAttribute("status", "element " + id + " kunne ikke slettes!";
