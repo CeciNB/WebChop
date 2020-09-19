@@ -5,7 +5,7 @@ import java.util.List;
 public interface ICrudRepository<T> {
     void create(T t);
     List<T> readAll();
-    T read(int id);
+    T read(long id);
     boolean update(T t);
-    boolean delete(int id);
+    boolean delete(long id);
 }

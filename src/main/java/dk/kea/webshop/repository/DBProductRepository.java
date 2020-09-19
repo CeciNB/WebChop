@@ -57,16 +57,16 @@ public class DBProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public Product read(int id) {
+    public Product read(long id) {
         Product product = new Product();
         String sqlStatement = "SELECT * FROM products WHERE product_id = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
-            ps.setInt(1, id);
+            ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 product = new Product();
-                product.setId(rs.getInt("product_id"));
+                product.setId(rs.getLong("product_id"));
                 product.setName(rs.getString("product_name"));
                 product.setDescription(rs.getString("product_description"));
                 product.setPrice(rs.getDouble("product_price"));
@@ -87,7 +87,7 @@ public class DBProductRepository implements ICrudRepository<Product>{
             ps.setString(1, product.getName());
             ps.setString(2, product.getDescription());
             ps.setDouble(3, product.getPrice());
-            ps.setInt(4, (int) product.getId());
+            ps.setLong(4, product.getId());
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("successfull!");
@@ -100,12 +100,12 @@ public class DBProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(long id) {
         boolean result = false;
         String sqlStatement = "DELETE FROM products WHERE product_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
-            ps.setInt(1, id);
+            ps.setLong(1, id);
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("successfull!");

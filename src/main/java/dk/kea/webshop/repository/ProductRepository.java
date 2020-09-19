@@ -32,7 +32,7 @@ public class ProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public Product read(int id) {
+    public Product read(long id) {
         //find element med id
         int i=0;
         while (i< products.size()){
@@ -57,7 +57,7 @@ public class ProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(long id) {
         //find og slet element med id
         int i=0;
         while (i< products.size()){

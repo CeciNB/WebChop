@@ -2,7 +2,7 @@ package dk.kea.webshop.model;
 
 public class Product {
 
-    private int id;
+    private long id;
     private String name;
     private String description;
     private double price;
@@ -10,7 +10,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, String description, double price) {
+    public Product(long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -22,7 +22,7 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
