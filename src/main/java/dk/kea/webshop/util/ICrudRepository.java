@@ -1,4 +1,4 @@
-package dk.kea.webshop.repository;
+package dk.kea.webshop.util;
 
 import java.util.List;
 

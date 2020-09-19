@@ -2,6 +2,7 @@ package dk.kea.webshop.repository;
 
 import dk.kea.webshop.model.Product;
 import dk.kea.webshop.util.DatabaseConnectionManager;
+import dk.kea.webshop.util.ICrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class DBProductRepository implements ICrudRepository<Product>{
+public class DBProductRepository implements ICrudRepository<Product> {
 
     private Connection conn;
 

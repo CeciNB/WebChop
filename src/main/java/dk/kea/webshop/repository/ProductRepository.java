@@ -1,13 +1,14 @@
 package dk.kea.webshop.repository;
 
 import dk.kea.webshop.model.Product;
+import dk.kea.webshop.util.ICrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ProductRepository implements ICrudRepository<Product>{
+public class ProductRepository implements ICrudRepository<Product> {
 
     //collection for handling test data
     private List<Product> products = new ArrayList<>();
