@@ -33,11 +33,11 @@ public class ProductService {
         return updateOK;
     }
 
-    public Product read(long id){
+    public Product read(int id){
         return productRepository.read(id);
     }
 
-    public boolean delete(Long id){
+    public boolean delete(int id){
         return productRepository.delete(id);
     }
 
