@@ -37,7 +37,8 @@ public class ProductRepository implements ICrudRepository<Product> {
         //find element med id
         int i=0;
         while (i< products.size()){
-            if (products.get(i).getId()==id) return products.get(i);
+            if (products.get(i).getId()==id)
+                return products.get(i);
             i++;
         }
         return null;

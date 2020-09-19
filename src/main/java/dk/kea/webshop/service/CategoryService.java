@@ -25,9 +25,7 @@ public class CategoryService {
     }
 
     public boolean update(Category category){
-
-        boolean updateOK = categoryRepository.update(category);
-        return updateOK;
+        return categoryRepository.update(category);
     }
 
     public Category read(long id){

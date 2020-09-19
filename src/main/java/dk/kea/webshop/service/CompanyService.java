@@ -25,9 +25,7 @@ public class CompanyService {
     }
 
     public boolean update(Company company){
-
-        boolean updateOK = companyRepository.update(company);
-        return updateOK;
+        return companyRepository.update(company);
     }
 
     public Company read(long id){

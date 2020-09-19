@@ -1,6 +1,11 @@
 package dk.kea.webshop.controller;
 
+import dk.kea.webshop.model.Category;
+import dk.kea.webshop.model.CompanyDescription;
 import dk.kea.webshop.model.Product;
+import dk.kea.webshop.service.CategoryService;
+import dk.kea.webshop.service.CompanyDescriptionService;
+import dk.kea.webshop.service.CompanyService;
 import dk.kea.webshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
     @Autowired
     ProductService productService;
+    CompanyService companyService;
+    CompanyDescriptionService companyDescriptionService;
+    CategoryService categoryService;
 
     @GetMapping("/")
     public String index(Model model)
@@ -21,6 +29,16 @@ public class HomeController {
         //add all products to view model from ProductService
         model.addAttribute("products", productService.readAll());
         return("index");
+    }
+    @GetMapping("/details/{id}")
+    public String details(Model modela, Model modelb, Model modelc, Model modeld, @PathVariable("id") long id)
+    {
+        //add all products to view model from ProductService
+        modela.addAttribute("products", productService.read(id));
+        modelb.addAttribute("companies", companyService.read(id));
+        modelc.addAttribute("companyDescription", companyDescriptionService.read(id));
+        modeld.addAttribute("category", categoryService.read(id));
+        return "details";
     }
 
     @GetMapping("/create")

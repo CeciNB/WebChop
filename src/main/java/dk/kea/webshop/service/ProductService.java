@@ -29,9 +29,7 @@ public class ProductService {
     }
 
     public boolean update(Product product){
-
-        boolean updateOK = productRepository.update(product);
-        return updateOK;
+        return productRepository.update(product);
     }
 
     public Product read(long id){
