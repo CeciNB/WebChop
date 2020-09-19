@@ -1,6 +1,7 @@
 package dk.kea.webshop.service;
 
 import dk.kea.webshop.model.Product;
+import dk.kea.webshop.repository.DBProductRepository;
 import dk.kea.webshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,11 +34,11 @@ public class ProductService {
         return updateOK;
     }
 
-    public Product read(int id){
+    public Product read(long id){
         return productRepository.read(id);
     }
 
-    public boolean delete(int id){
+    public boolean delete(long id){
         return productRepository.delete(id);
     }
 

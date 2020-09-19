@@ -14,10 +14,10 @@ public class ProductRepository implements ICrudRepository<Product>{
 
     public ProductRepository(){
         //fill in test data
-        this.products.add(new Product(1, "Æg", 32, "Kommer fra noget som kan lægge æg"));
-        this.products.add(new Product(2, "Mælk", 12, "fra kokos måske?"));
-        this.products.add(new Product(3, "Ost", 25, "fra en Kinesisk Panda"));
-        this.products.add(new Product(4, "Rugbrød", 20, "lavet af mel og vand"));
+        this.products.add(new Product(1, "Æg", "Kommer fra noget som kan lægge æg",32));
+        this.products.add(new Product(2, "Mælk", "fra kokos måske?",12));
+        this.products.add(new Product(3, "Ost", "fra en Kinesisk Panda",25));
+        this.products.add(new Product(4, "Rugbrød",  "lavet af mel og vand",20));
     }
 
     @Override
