@@ -34,8 +34,8 @@ public class HomeController {
     public String details(Model modela, Model modelb, Model modelc, Model modeld, @PathVariable("id") long id)
     {
         //add all products to view model from ProductService
-        modela.addAttribute("products", productService.read(id));
-        modelb.addAttribute("companies", companyService.read(id));
+        modela.addAttribute("product", productService.read(id));
+        modelb.addAttribute("company", companyService.read(id));
         modelc.addAttribute("companyDescription", companyDescriptionService.read(id));
         modeld.addAttribute("category", categoryService.read(id));
         return "details";
