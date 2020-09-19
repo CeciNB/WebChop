@@ -14,10 +14,10 @@ public class ProductRepository implements ICrudRepository<Product>{
 
     public ProductRepository(){
         //fill in test data
-        this.products.add(new Product(1, "AbeNisseHval", "Husdyr"));
-        this.products.add(new Product(2, "MotorStruds", "Havdyr"));
-        this.products.add(new Product(3, "Kungfu Panda", "Kinesisk Panda"));
-        this.products.add(new Product(4, "Snurre Snup", "Hare"));
+        this.products.add(new Product(1, "AbeNisseHval", "Husdyr",2.4));
+        this.products.add(new Product(2, "MotorStruds", "Havdyr",5.6));
+        this.products.add(new Product(3, "Kungfu Panda", "Kinesisk Panda",6.7));
+        this.products.add(new Product(4, "Snurre Snup", "Hare",7.8));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public Product read(long id) {
+    public Product read(int id) {
         //find element med id
         int i=0;
         while (i< products.size()){
@@ -57,7 +57,7 @@ public class ProductRepository implements ICrudRepository<Product>{
     }
 
     @Override
-    public boolean delete(long id) {
+    public boolean delete(int id) {
         //find og slet element med id
         int i=0;
         while (i< products.size()){

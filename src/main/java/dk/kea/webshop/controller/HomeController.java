@@ -36,7 +36,7 @@ public class HomeController {
 
     //use pathvariable to map id from list on web page
     @GetMapping("/update/{id}")
-    public String update(@PathVariable("id") long id, Model model){
+    public String update(@PathVariable("id") int id, Model model){
         //tilføj Animal med id til model view
         model.addAttribute("anim", productService.read(id));
         return "update";
@@ -52,7 +52,7 @@ public class HomeController {
 
     //delete animal
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") long id, Model model){
+    public String delete(@PathVariable("id") int id, Model model){
         /* if (animalService.delete(id))
             model.addAttribute("status", "element " + id + " slettet";
             else
