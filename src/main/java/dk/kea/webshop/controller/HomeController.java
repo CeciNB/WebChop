@@ -19,7 +19,7 @@ public class HomeController {
     public String index(Model model)
     {
         //add all products to view model from ProductService
-        model.addAttribute("product", productService.readAll());
+        model.addAttribute("products", productService.readAll());
         return("index");
     }
 

@@ -29,10 +29,10 @@ public class DBProductRepository implements ICrudRepository<Product>{
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Product product = new Product();
-                product.setId(rs.getInt("student_id"));
-                product.setName(rs.getString("first_name"));
-                product.setDescription(rs.getString("last_name"));
-                product.setPrice(rs.getDouble("student_cpr"));
+                product.setId(rs.getInt("product_id"));
+                product.setName(rs.getString("product_name"));
+                product.setDescription(rs.getString("product_description"));
+                product.setPrice(rs.getDouble("product_price"));
                 products.add(product);
             }
         } catch (SQLException e) {
