@@ -2,6 +2,7 @@ package dk.kea.webshop.service;
 
 import dk.kea.webshop.model.Company;
 import dk.kea.webshop.repository.CompanyRepository;
+import dk.kea.webshop.repository.DBCompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class CompanyService {
 
     @Autowired
-    CompanyRepository companyRepository;
+    DBCompanyRepository companyRepository;
 
     public List<Company> readAll(){
         List<Company> companies = new ArrayList<>();

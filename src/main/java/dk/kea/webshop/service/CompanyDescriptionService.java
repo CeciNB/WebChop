@@ -4,6 +4,7 @@ import dk.kea.webshop.model.Company;
 import dk.kea.webshop.model.CompanyDescription;
 import dk.kea.webshop.repository.CompanyDescriptionRepository;
 
+import dk.kea.webshop.repository.DBCompanyDescriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class CompanyDescriptionService {
     @Autowired
-    CompanyDescriptionRepository companyDescriptionRepository;
+    DBCompanyDescriptionRepository companyDescriptionRepository;
 
     public List<CompanyDescription> readAll(){
         List<CompanyDescription> companyDescriptions = new ArrayList<>();

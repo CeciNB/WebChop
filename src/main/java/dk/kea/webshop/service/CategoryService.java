@@ -2,6 +2,7 @@ package dk.kea.webshop.service;
 
 import dk.kea.webshop.model.Category;
 import dk.kea.webshop.repository.CategoryRepository;
+import dk.kea.webshop.repository.DBCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class CategoryService {
     @Autowired
-    CategoryRepository categoryRepository;
+    DBCategoryRepository categoryRepository;
 
     public List<Category> readAll(){
         List<Category> categories = new ArrayList<>();

@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductService {
 
     @Autowired
-    ProductRepository productRepository;
+    DBProductRepository productRepository;
 
     public List<Product> readAll(){
         List<Product> products = new ArrayList<>();

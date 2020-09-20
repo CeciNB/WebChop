@@ -54,7 +54,7 @@ public class HomeController {
     @PostMapping("/create")
     public String create(@ModelAttribute Product product){
         productService.create(product);
-        return "redirect:/";
+        return "redirect:/products";
     }
 
     //use pathvariable to map id from list on web page
@@ -70,7 +70,7 @@ public class HomeController {
     public String update(@ModelAttribute Product product){
         //update by using update service
         productService.update(product);
-        return "redirect:/";
+        return "redirect:/products";
     }
 
     //delete animal
@@ -84,6 +84,6 @@ public class HomeController {
         productService.delete(id);
         //burde fange returværdi fra kald og sende statusbesked med ud på websiden
         //model.addAttribute("status", returnværdi af kald)
-        return "redirect:/";
+        return "redirect:/products";
     }
 }
