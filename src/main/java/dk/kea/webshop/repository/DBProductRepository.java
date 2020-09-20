@@ -82,7 +82,7 @@ public class DBProductRepository implements ICrudRepository<Product> {
     @Override
     public boolean update(Product product) {
         boolean result = false;
-        String sqlStatement = "UPDATE products SET product_name = ? product_description = ? product_price = ? WHERE product_id = ?;";
+        String sqlStatement = "UPDATE products SET product_name = ?, product_description = ?, product_price = ? WHERE product_id = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setString(1, product.getName());
