@@ -12,9 +12,9 @@ public class CompanyDescriptionRepository implements ICrudRepository<CompanyDesc
     private List<CompanyDescription> companyDescriptions = new ArrayList<>();
 
     public CompanyDescriptionRepository() {
-        this.companyDescriptions.add(new CompanyDescription(200004,"Makeup"));
-        this.companyDescriptions.add(new CompanyDescription(200005,"Madvarer"));
-        this.companyDescriptions.add(new CompanyDescription(200009,"Noget andet"));
+        this.companyDescriptions.add(new CompanyDescription(1,"Makeup",1));
+        this.companyDescriptions.add(new CompanyDescription(2,"Madvarer",2));
+        this.companyDescriptions.add(new CompanyDescription(3,"Noget andet",3));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CompanyDescriptionRepository implements ICrudRepository<CompanyDesc
     public CompanyDescription read(long id) {
         int i=0;
         while (i< companyDescriptions.size()){
-            if (companyDescriptions.get(i).getId()==id)
+            if (companyDescriptions.get(i).getProductId()==id)
                 return companyDescriptions.get(i);
             i++;
         }

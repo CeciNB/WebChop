@@ -6,15 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class CompanyRepository implements ICrudRepository<Company> {
 
     private List<Company> companies = new ArrayList<>();
 
     public CompanyRepository() {
-        this.companies.add(new Company(200004,"Elle"));
-        this.companies.add(new Company(200005,"Coop"));
-        this.companies.add(new Company(200009,"Andet"));
+        this.companies.add(new Company(1,"Elle",1));
+        this.companies.add(new Company(2,"Coop",2));
+        this.companies.add(new Company(3,"Andet",3));
     }
 
     @Override
@@ -31,7 +32,7 @@ public class CompanyRepository implements ICrudRepository<Company> {
     public Company read(long id) {
         int i=0;
         while (i< companies.size()){
-            if (companies.get(i).getId()==id)
+            if (companies.get(i).getProductId()==id)
                 return companies.get(i);
             i++;
         }
@@ -53,7 +54,7 @@ public class CompanyRepository implements ICrudRepository<Company> {
     public boolean delete(long id) {
         int i=0;
         while (i< companies.size()){
-            if (companies.get(i).getId()==id){
+            if (companies.get(i).getId() == id){
                 companies.remove(i);
                 return true;
             }

@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductService {
 
     @Autowired
-    DBProductRepository productRepository;
+    ProductRepository productRepository;
 
     public List<Product> readAll(){
         List<Product> products = new ArrayList<>();
@@ -39,5 +39,4 @@ public class ProductService {
     public boolean delete(long id){
         return productRepository.delete(id);
     }
-
 }

@@ -9,30 +9,12 @@
 <body>
 <div class="row">
     <div class="container">
-        <h1>Vareliste</h1>
+        <h1>Velkommen</h1>
     </div>
 </div>
 <div class="row">
     <div class="container">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Varenavn</th>
-                <th>Pris</th>
-                <th>Beskrivelse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="product : ${products}">
-                <td th:text="${product.name}"></td>
-                <td th:text="${product.price}"></td>
-                <td th:text="${product.description}"></td>
-                <td><a th:href="@{'/details/' + ${product.id}}" class="btn btn-info">info</a></td>
-                <td><a th:href="@{'/update/' + ${product.id}}" class="btn btn-warning">opdater</a></td>
-                <td><a th:href="@{'/delete/' + ${product.id}}" class="btn btn-danger">slet</a></td>
-            </tr>
-            </tbody>
-        </table>
+        <a th:href="/products/" class="btn btn-danger">See products</a></td>
     </div>
 </div>
 <div class="row">

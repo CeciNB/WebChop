@@ -4,7 +4,7 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Oversigt over vare</title>
 </head>
 <body>
 <div class="row">
@@ -23,13 +23,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td th:value="${product.name}"></td>
-                <td th:value="${product.price}"></td>
-                <td th:value="${product.description}"></td>
-                <td th:value="${company.name}"></td>
-                <td th:value="${companyDescription.name}"></td>
-                <td th:value="${category.name}"></td>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.description}"></td>
+                <td><a th:href="@{'/details/' + ${product.id}}" class="btn btn-info">info</a></td>
                 <td><a th:href="@{'/update/' + ${product.id}}" class="btn btn-warning">opdater</a></td>
                 <td><a th:href="@{'/delete/' + ${product.id}}" class="btn btn-danger">slet</a></td>
             </tr>
@@ -39,7 +37,7 @@
 </div>
 <div class="row">
     <div class="container">
-        <a href="/create" class="btn btn-primary" role="button">opret product</a>
+        <a href="create" class="btn btn-primary" role="button">opret product</a>
     </div>
 </div>
 </body>
