@@ -64,19 +64,23 @@ public class DBCompanyRepository implements ICrudRepository<Company> {
     @Override
     public Company read(long id) {
         Company company = null;
-        String sqlStatement = "SELECT * FROM company WHERE company_id = ?";
+        String sqlStatement = "SELECT company.company_id, company.company_name\n" +
+                "FROM products\n" +
+                "INNER JOIN company ON products.company_id = company.company_id\n" +
+                "WHERE product_id = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 company = new Company(
-                        rs.getLong("company_id"),
-                        rs.getString("company_name")
+                        rs.getLong("company.company_id"),
+                        rs.getString("company.company_name")
                 );
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            System.out.println("FELJ");
         }
         return company;
     }

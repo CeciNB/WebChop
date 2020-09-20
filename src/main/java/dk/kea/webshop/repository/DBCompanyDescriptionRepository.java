@@ -64,19 +64,23 @@ public class DBCompanyDescriptionRepository implements ICrudRepository<CompanyDe
     @Override
     public CompanyDescription read(long id) {
         CompanyDescription companyDescription = null;
-        String sqlStatement = "SELECT * FROM company_description WHERE company_description_id = ?";
+        String sqlStatement = "SELECT company_description.company_description_id, company_description.company_description_name\n" +
+                "FROM products\n" +
+                "INNER JOIN company_description ON products.company_description_id = company_description.company_description_id\n" +
+                "WHERE product_id = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 companyDescription = new CompanyDescription(
-                        rs.getLong("company_description_id"),
-                        rs.getString("company_description_name")
+                        rs.getLong("company_description.company_description_id"),
+                        rs.getString("company_description.company_description_name")
                 );
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            System.out.println("FELJ");
         }
         return companyDescription;
     }

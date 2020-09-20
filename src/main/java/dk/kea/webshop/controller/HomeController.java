@@ -40,6 +40,7 @@ public class HomeController {
     public String details(Model modela, Model modelb, Model modelc, Model modeld, @PathVariable("id") long id)
     {
         modela.addAttribute("product", productService.read(id));
+
         modelb.addAttribute("company", companyService.read(id));
         modelc.addAttribute("companyDescription", companyDescriptionService.read(id));
         modeld.addAttribute("category", categoryService.read(id));

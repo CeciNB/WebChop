@@ -64,19 +64,23 @@ public class DBCategoryRepository implements ICrudRepository<Category> {
     @Override
     public Category read(long id) {
         Category category = null;
-        String sqlStatement = "SELECT * FROM category WHERE category_id = ?";
+        String sqlStatement = "SELECT category.category_id, category.category_name\n" +
+                "FROM products\n" +
+                "INNER JOIN category ON products.category_id = category.category_id\n" +
+                "WHERE product_id = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 category = new Category(
-                        rs.getLong("company_description_id"),
-                        rs.getString("company_description_name")
+                        rs.getLong("category.category_id"),
+                        rs.getString("category.category_name")
                 );
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            System.out.println("FELJ");
         }
         return category;
     }
