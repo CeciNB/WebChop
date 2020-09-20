@@ -1,7 +1,6 @@
 package dk.kea.webshop.repository;
 
 import dk.kea.webshop.model.Category;
-import dk.kea.webshop.model.CompanyDescription;
 import dk.kea.webshop.util.DatabaseConnectionManager;
 import dk.kea.webshop.util.ICrudRepository;
 import org.springframework.stereotype.Repository;
