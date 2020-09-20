@@ -1,6 +1,7 @@
 package dk.kea.webshop.repository;
 
-import dk.kea.webshop.model.Company;
+import dk.kea.webshop.model.Category;
+import dk.kea.webshop.model.CompanyDescription;
 import dk.kea.webshop.util.DatabaseConnectionManager;
 import dk.kea.webshop.util.ICrudRepository;
 import org.springframework.stereotype.Repository;
@@ -13,83 +14,82 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class DBCompanyRepository implements ICrudRepository<Company> {
+public class DBCategoryRepository implements ICrudRepository<Category> {
 
     private Connection conn;
 
-    public DBCompanyRepository() {
+    public DBCategoryRepository(){
         this.conn = DatabaseConnectionManager.getDatabaseConnection();
     }
 
     @Override
-    public void create(Company company) {
-        String sqlStatement = "INSERT IGNORE INTO company (company_id, company_name,) VALUES  (?, ?)";
+    public void create(Category category) {
+        String sqlStatement = "INSERT IGNORE INTO category (category_id, category_name,) VALUES  (?, ?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
-            ps.setLong(1, company.getId());
-            ps.setString(2, company.getName());
+            ps.setLong(1, category.getId());
+            ps.setString(2, category.getName());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        String sqlStatement2 = "UPDATE products SET company_id = ? WHERE product_id = ?";
+        String sqlStatement2 = "UPDATE products SET category_id = ? WHERE product_id = ?";
         try {
             PreparedStatement ps2 = conn.prepareStatement(sqlStatement2);
-            ps2.setLong(1, company.getId());
-            ps2.setLong(2, company.getProductId());
+            ps2.setLong(1, category.getId());
+            ps2.setLong(2, category.getProductId());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
     @Override
-    public List<Company> readAll() {
-        ArrayList<Company> companies = new ArrayList<>();
-        String sqlStatement = "SELECT  * FROM company";
+    public List<Category> readAll() {
+        ArrayList<Category> categories = new ArrayList<>();
+        String sqlStatement = "SELECT  * FROM category";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                Company company = new Company(
-                        rs.getLong("company_id"),
-                        rs.getString("company_name")
+                Category category = new Category(
+                        rs.getLong("category_id"),
+                        rs.getString("category_name")
                 );
-                companies.add(company);
+                categories.add(category);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return companies;
+        return categories;
     }
 
     @Override
-    public Company read(long id) {
-        Company company = null;
-        String sqlStatement = "SELECT * FROM company WHERE company_id = ?";
+    public Category read(long id) {
+        Category category = null;
+        String sqlStatement = "SELECT * FROM category WHERE category_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                company = new Company(
-                        rs.getLong("company_id"),
-                        rs.getString("company_name")
+                category = new Category(
+                        rs.getLong("company_description_id"),
+                        rs.getString("company_description_name")
                 );
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return company;
+        return category;
     }
 
-
     @Override
-    public boolean update(Company company) {
+    public boolean update(Category category) {
         boolean result = false;
-        String sqlStatement = "UPDATE company SET company_name = ? WHERE company_id = ?";
+        String sqlStatement = "UPDATE category SET category_name = ? WHERE category_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
-            ps.setString(1, company.getName());
-            ps.setLong(2, company.getId());
+            ps.setString(1, category.getName());
+            ps.setLong(2, category.getId());
             int rowInserted = ps.executeUpdate();
             if (rowInserted > 0){
                 System.out.println("succes!");
@@ -101,11 +101,10 @@ public class DBCompanyRepository implements ICrudRepository<Company> {
         return result;
     }
 
-
     @Override
     public boolean delete(long id) {
         boolean result = false;
-        String sqlStatement = "DELETE FROM company WHERE company_id = ?";
+        String sqlStatement = "DELETE FROM category WHERE category_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlStatement);
             ps.setLong(1, id);
