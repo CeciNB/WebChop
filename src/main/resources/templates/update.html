@@ -4,33 +4,46 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
-    <title>Update</title>
+    <title>UPDATE</title>
 </head>
 <body>
-<div class="row">
-    <div class="container">
-        <h1>Opdater Product</h1>
-    </div>
+<div class="jumbotron text-center">
+    <h1>UPDATE</h1>
 </div>
 <div class="row">
     <div class="container">
         <form action="/update" method="post">
             <div class="form-group">
                 <input type="hidden" name="id" th:value="${product.id}">
-                <label for="name">Navn:</label>
+                <label for="name">NAME:</label>
                 <input id="name" class="form-control" type="text" name="name" th:value="${product.name}">
             </div>
             <div class="form-group">
-                <label for="price">Pris:</label>
+                <label for="price">PRICE:</label>
                 <input id="price" class="form-control" type="text" name="price" th:value="${product.price}">
             </div>
             <div class="form-group">
-                <label for="description">Beskrivelse:</label>
+                <label for="description">DESCRIPTION</label>
                 <input id="description" class="form-control" type="text" name="description"
                        th:value="${product.description}">
             </div>
+            <div class="dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                    COMPANY
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:each="company : ${companies}" th:text="${company.name}" th:value="${company.id}" href="#"></a>
+                </div>
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                    CATEGORY
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}" href="#"></a>
+                </div>
+            </div>
+            <p id="space"></p>
             <div class="form-group">
-                <input type="submit" value="Opdater" class="btn btn-success" role="button">
+                <input type="submit" value="UPDATE" class="btn btn-success" role="button">
             </div>
         </form>
     </div>

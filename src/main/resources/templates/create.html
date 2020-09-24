@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
-    <title>Create</title>
+    <title>CREATE</title>
 </head>
 <body>
-<div class="row">
-    <div class="container">
-        <h1>Create Product</h1>
-    </div>
+<div class="jumbotron text-center">
+    <h1>CREATE</h1>
 </div>
 <div class="row">
     <div class="container">
         <form action="/create" method="post">
             <div class="form-group">
-                <input class="form-control" type="text" name="id" placeholder="id">
+                <input class="form-control" type="text" name="id" placeholder="ID">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="navn">
+                <input class="form-control" type="text" name="name" placeholder="NAME">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="description" placeholder="beskrivelse">
+                <input class="form-control" type="text" name="description" placeholder="DESCRIPTION">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="price" placeholder="pris">
+                <input class="form-control" type="text" name="price" placeholder="PRICE">
             </div>
+            <div class="dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                    COMPANY
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:each="company : ${companies}" th:text="${company.name}" th:value="${company.id}" href="#"></a>
+                </div>
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                    CATEGORY
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}" href="#"></a>
+                </div>
+            </div>
+            <p id="space"></p>
             <div class="form-group">
-                <input type="submit" value="send" class="btn btn-success" role="button">
+                <input type="submit" value="SEND" class="btn btn-success" role="button">
             </div>
         </form>
     </div>

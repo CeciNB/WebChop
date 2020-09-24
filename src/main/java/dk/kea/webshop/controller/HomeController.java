@@ -47,7 +47,9 @@ public class HomeController {
     }
 
     @GetMapping("/create")
-    public String create(){
+    public String create(Model modelOne, Model modelTwo){
+        modelOne.addAttribute("companies", companyService.readAll());
+        modelTwo.addAttribute("categories", categoryService.readAll());
         return "create";
     }
 
