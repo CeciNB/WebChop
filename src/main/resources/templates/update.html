@@ -15,11 +15,11 @@
         <form action="/update" method="post">
             <div class="form-group">
                 <input type="hidden" name="id" th:value="${product.id}">
-                <label for="name">NAME:</label>
+                <label for="name">NAME</label>
                 <input id="name" class="form-control" type="text" name="name" th:value="${product.name}">
             </div>
             <div class="form-group">
-                <label for="price">PRICE:</label>
+                <label for="price">PRICE</label>
                 <input id="price" class="form-control" type="text" name="price" th:value="${product.price}">
             </div>
             <div class="form-group">
@@ -27,19 +27,25 @@
                 <input id="description" class="form-control" type="text" name="description"
                        th:value="${product.description}">
             </div>
-            <div class="dropdown">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    COMPANY
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" th:each="company : ${companies}" th:text="${company.name}" th:value="${company.id}" href="#"></a>
-                </div>
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    CATEGORY
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}" href="#"></a>
-                </div>
+            <div class="form-group">
+                <label for="company">COMPANY</label>
+                <select class="form-control selectpicker" id="company">
+                    <option value="">Nothing selected</option>
+                    <option th:each="company : ${companies}"
+                            th:value="${company.id}"
+                            th:text="${company.name}">company
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="category">CATEGORY</label>
+                <select class="form-control selectpicker"  id="category">
+                    <option value="">Nothing selected</option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.id}"
+                            th:text="${category.name}">category
+                    </option>
+                </select>
             </div>
             <p id="space"></p>
             <div class="form-group">

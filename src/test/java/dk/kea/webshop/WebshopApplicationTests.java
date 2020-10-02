@@ -1,4 +1,4 @@
-package dk.kea.webshop;
+package java.dk.kea.webshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

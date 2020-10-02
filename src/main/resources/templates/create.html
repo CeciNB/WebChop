@@ -25,19 +25,25 @@
             <div class="form-group">
                 <input class="form-control" type="text" name="price" placeholder="PRICE">
             </div>
-            <div class="dropdown">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    COMPANY
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" th:each="company : ${companies}" th:text="${company.name}" th:value="${company.id}" href="#"></a>
-                </div>
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                    CATEGORY
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}" href="#"></a>
-                </div>
+            <div class="form-group">
+                <label for="company">COMPANY</label>
+                <select class="form-control selectpicker" id="company">
+                    <option value="">Nothing selected</option>
+                    <option th:each="company : ${companies}"
+                            th:value="${company.id}"
+                            th:text="${company.name}">company
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="category">CATEGORY</label>
+                <select class="form-control selectpicker"  id="category">
+                    <option value="">Nothing selected</option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.id}"
+                            th:text="${category.name}">category
+                    </option>
+                </select>
             </div>
             <p id="space"></p>
             <div class="form-group">

@@ -1,4 +1,6 @@
 package dk.kea.webshop.controller;
+import dk.kea.webshop.model.Category;
+import dk.kea.webshop.model.Company;
 import dk.kea.webshop.model.Product;
 import dk.kea.webshop.service.CategoryService;
 import dk.kea.webshop.service.CompanyDescriptionService;
@@ -54,8 +56,10 @@ public class HomeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Product product){
+    public String create(@ModelAttribute Product product, Category category, Company company){
         productService.create(product);
+        categoryService.create(category);
+        companyService.create(company);
         return "redirect:/products";
     }
 
