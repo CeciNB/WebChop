@@ -1,32 +1,27 @@
 package dk.kea.webshop.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Product {
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
-    private double price;
+    private Double price;
+    @ManyToOne
+    private Company company;
+    @ManyToMany
+    private Set<Category> category;
+    @OneToOne
+    private CompanyDescription companyDescription;
 
-    public Product() {
-    }
-
-    public Product(long id, String name, String description, double price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,11 +41,35 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Set<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(Set<Category> category) {
+        this.category = category;
+    }
+
+    public CompanyDescription getCompanyDescription() {
+        return companyDescription;
+    }
+
+    public void setCompanyDescription(CompanyDescription companyDescription) {
+        this.companyDescription = companyDescription;
     }
 }
