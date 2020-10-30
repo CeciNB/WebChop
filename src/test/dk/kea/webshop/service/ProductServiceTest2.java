@@ -34,12 +34,10 @@ class ProductServiceTest2 {
 
     @Test
     void readAll() {
-
     }
 
     @Test
     void create() {
-
     }
 
     @Test
@@ -48,17 +46,10 @@ class ProductServiceTest2 {
 
     @Test
     void read() {
-
-
     }
 
     @Test
     void delete() {
-
-
     }
 
-    private Product getSingleProduct(){
-
-    }
 }
