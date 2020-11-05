@@ -13,7 +13,7 @@ public class Product {
     @ManyToOne
     private Company company;
     @ManyToMany
-    private Set<Category> category;
+    private Set<Category> categories;
     @OneToOne
     private CompanyDescription companyDescription;
 
@@ -57,12 +57,12 @@ public class Product {
         this.company = company;
     }
 
-    public Set<Category> getCategory() {
-        return category;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(Set<Category> category) {
-        this.category = category;
+    public void setCategories(Set<Category> category) {
+        this.categories = category;
     }
 
     public CompanyDescription getCompanyDescription() {

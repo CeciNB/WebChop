@@ -20,7 +20,7 @@ public class HomeController {
     @GetMapping("/")
     public String index()
     {
-        return "h2-console";
+        return "index";
     }
 
 }

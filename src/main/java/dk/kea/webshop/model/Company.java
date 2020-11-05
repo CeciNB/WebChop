@@ -8,6 +8,6 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "company")
     private Set<Product> products;
 }
