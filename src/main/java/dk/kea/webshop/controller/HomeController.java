@@ -1,6 +1,8 @@
 package dk.kea.webshop.controller;
 
 import dk.kea.webshop.model.Product;
+import dk.kea.webshop.repository.CategoryRepository;
+import dk.kea.webshop.repository.CompanyRepository;
 import dk.kea.webshop.repository.ProductRepository;
 
 import org.springframework.stereotype.Controller;
@@ -14,14 +16,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     ProductRepository productRepository;
+    CategoryRepository categoryRepository;
+    CompanyRepository companyRepository;
 
-    public HomeController(ProductRepository productRepository) {
+    public HomeController(ProductRepository productRepository, CategoryRepository categoryRepository, CompanyRepository companyRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+        this.companyRepository = companyRepository;
     }
 
     @GetMapping("/")
-    public String index()
-    {
+    public String index() {
         return "index";
     }
 
@@ -38,12 +43,15 @@ public class HomeController {
     }
 
     @GetMapping("/create")
-    public String create(){
+    public String create(Model modelCat, Model modelComp){
+        modelCat.addAttribute("categories", categoryRepository.findAll());
+        modelComp.addAttribute("companies", companyRepository.findAll());
         return "create";
     }
 
     @PostMapping("/create")
     public String create(@ModelAttribute Product product){
+        System.out.println(product);
         productRepository.save(product);
         return "redirect:/products";
     }
