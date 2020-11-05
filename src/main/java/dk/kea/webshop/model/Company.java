@@ -9,5 +9,5 @@ public class Company {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "company")
-    private Set<Product> products;
+    private Set<Product> product;
 }
