@@ -8,6 +8,6 @@ import java.util.Set;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-
+    Product findById(long id);
 
 }
