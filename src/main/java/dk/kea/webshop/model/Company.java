@@ -10,4 +10,12 @@ public class Company {
     private String name;
     @OneToMany(mappedBy = "company")
     private Set<Product> product;
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

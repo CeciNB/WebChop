@@ -10,4 +10,12 @@ public class Category {
     private String name;
     @ManyToMany(mappedBy = "category")
     private Set<Product> product;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -10,4 +10,5 @@ public class CompanyDescription {
     @OneToOne
     private Product product;
 
+
 }
