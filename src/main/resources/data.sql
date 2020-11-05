@@ -1,21 +1,22 @@
-INSERT INTO company (name) VALUES ('black stone');
+INSERT INTO company (name) VALUES ('Black Stone');
 INSERT INTO company (name) VALUES ('KEA');
 
-INSERT INTO company_description (description) VALUES ('et godt sted');
+INSERT INTO company_description (description) VALUES ('Et godt sted');
 INSERT INTO company_description (description) VALUES ('super firma');
 
-INSERT INTO category(name) VALUES ('viskende vare');
-INSERT INTO category(name) VALUES ('ikke så viskende vare');
+INSERT INTO category(name) VALUES ('Viskende vare');
+INSERT INTO category(name) VALUES ('Ikke så viskende vare');
+INSERT INTO category(name) VALUES ('Shhhh');
+INSERT INTO category(name) VALUES ('Stille');
 
-INSERT INTO products(description,name,price,company_id,company_description_id)
-VALUES('Coloured plaster','KC14 Beige Berry',200.95, 1, 1);
-INSERT INTO products(description,name,price,company_id,company_description_id)
-VALUES('Coloured plaster','KC14 Warm Teracotta',200.95, 2, 2);
-INSERT INTO products(description,name,price,company_id,company_description_id)
-VALUES('Coloured plaster','KC14 Dark Plum',200.95 ,1, 2);
+INSERT INTO product(description,name,price)
+VALUES('Coloured plaster','KC14 Beige Berry',200.95);
+INSERT INTO product(description,name,price)
+VALUES('Coloured plaster','KC14 Warm Teracotta',200.95);
+INSERT INTO product(description,name,price)
+VALUES('Coloured plaster','KC14 Dark Plum',200.95);
 
 /*SELECT * FROM products;
-
 
 UPDATE products
 SET product_description = 'KC14 Coloured plaster'
