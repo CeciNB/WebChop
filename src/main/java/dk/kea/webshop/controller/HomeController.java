@@ -7,10 +7,7 @@ import dk.kea.webshop.repository.ProductRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -44,10 +41,9 @@ public class HomeController {
     }
 
     @GetMapping("/create")
-    public String create(Model modelCat, Model modelComp, Model model){
-        modelCat.addAttribute("categories", categoryRepository.findAll());
-        modelComp.addAttribute("companies", companyRepository.findAll());
-        model.addAttribute("product", new Product());
+    public String create(Model model){
+        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("companies", companyRepository.findAll());
         return "create";
     }
 
