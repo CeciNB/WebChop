@@ -4,15 +4,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table (name = "companies")
 public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (name = "name")
     private String name;
 
     @OneToMany(mappedBy = "company")
-    private Set<Product> product;
+    private Set<Product> products;
 
     public Long getId() {
         return id;

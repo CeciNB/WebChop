@@ -4,20 +4,24 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table (name = "products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (name = "name")
     private String name;
+    @Column (name = "description")
     private String description;
+    @Column (name = "price")
     private Double price;
 
     @ManyToOne
     private Company company;
 
     @ManyToMany
-    private Set<Category> category;
+    private Set<Category> categories;
 
     @OneToOne
     private CompanyDescription companyDescription;
@@ -62,12 +66,12 @@ public class Product {
         this.company = company;
     }
 
-    public Set<Category> getCategory() {
-        return category;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(Set<Category> category) {
-        this.category = category;
+    public void setCategories(Set<Category> category) {
+        this.categories = category;
     }
 
     public CompanyDescription getCompanyDescription() {
@@ -86,7 +90,7 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", company=" + company +
-                ", category=" + category +
+                ", category=" + categories +
                 ", companyDescription=" + companyDescription +
                 '}';
     }

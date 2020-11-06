@@ -4,15 +4,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table (name = "categories")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "category")
-    private Set<Product> product;
+    @ManyToMany(mappedBy = "categories")
+    private Set<Product> products;
 
     public Long getId() {
         return id;

@@ -3,11 +3,13 @@ package dk.kea.webshop.model;
 import javax.persistence.*;
 
 @Entity
+@Table (name = "company_descriptions")
 public class CompanyDescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (name = "description")
     private String description;
 
     @OneToOne
