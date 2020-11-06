@@ -19,6 +19,9 @@
                 <th>PRODUCT</th>
                 <th>PRICE</th>
                 <th>DESCRIPTION</th>
+                <th>COMPANY</th>
+                <th>COMPANY DESCRIPTION</th>
+                <th>CATEGORY</th>
                 <th>ACTIONS</th>
             </tr>
             </thead>
@@ -28,6 +31,11 @@
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.description}"></td>
+                <td th:text="${product.company.name}"></td>
+                <td th:text="${product.companyDescription.description}"></td>
+                <td>
+                    <p th:each="category: ${product.category}" th:text="${category.name}"></p>
+                </td>
                 <td>
                     <div class="btn-group">
                         <a th:href="@{'/update/' + ${product.id}}" class="btn btn-outline-warning">UPDATE</a>

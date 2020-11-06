@@ -54,6 +54,30 @@ public class Product {
         this.price = price;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Set<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(Set<Category> category) {
+        this.category = category;
+    }
+
+    public CompanyDescription getCompanyDescription() {
+        return companyDescription;
+    }
+
+    public void setCompanyDescription(CompanyDescription companyDescription) {
+        this.companyDescription = companyDescription;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

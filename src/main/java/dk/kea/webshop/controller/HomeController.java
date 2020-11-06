@@ -39,6 +39,7 @@ public class HomeController {
     @GetMapping("/details/{id}")
     public String details(Model model, @PathVariable("id") long id) {
         model.addAttribute("product", productRepository.findById(id));
+        System.out.println(productRepository.findById(id));
         return "details";
     }
 
