@@ -22,6 +22,9 @@ public class Product {
     @OneToOne
     private CompanyDescription companyDescription;
 
+    public Product() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -44,9 +44,10 @@ public class HomeController {
     }
 
     @GetMapping("/create")
-    public String create(Model modelCat, Model modelComp){
+    public String create(Model modelCat, Model modelComp, Model model){
         modelCat.addAttribute("categories", categoryRepository.findAll());
         modelComp.addAttribute("companies", companyRepository.findAll());
+        model.addAttribute("product", new Product());
         return "create";
     }
 

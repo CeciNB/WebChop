@@ -14,6 +14,9 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private Set<Product> product;
 
+    public Company() {
+    }
+
     public Long getId() {
         return id;
     }
